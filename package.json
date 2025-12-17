@@ -1,0 +1,24 @@
+{
+  "name": "kulcs-zar-szerviz",
+  "version": "1.0.0",
+  "description": "Kulcs-Zár Szerviz professzionális weboldal; Image conversion helpers for Kulcs-Zár Szerviz (convert PNG/JPG to WebP using sharp)",
+  "main": "index.html",
+  "scripts": {
+    "start": "start index.html",
+    "dev": "npx http-server -p 8000 ./",
+    "deploy": "netlify deploy",
+    "convert": "node tools/convert-images.js",
+    "srcset": "node tools/generate-srcset.js"
+  },
+  "keywords": [
+    "zárszolgáltatás",
+    "kulcsmásolás",
+    "kulcs-zár"
+  ],
+  "author": "Kulcs-Zár Szerviz",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^24.33.0",
+    "sharp": "^0.32.0"
+  }
+}
