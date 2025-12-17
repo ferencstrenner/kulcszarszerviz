@@ -2,9 +2,9 @@
 // Töltsd ki az EmailJS dashboardról kapott adatokkal
 
 const EMAILJS_CONFIG = {
-    publicKey: 'YOUR_PUBLIC_KEY',        // EmailJS Account -> General -> Public Key
-    serviceId: 'YOUR_SERVICE_ID',        // Email Services -> Service ID
-    templateId: 'YOUR_TEMPLATE_ID'       // Email Templates -> Template ID
+    publicKey: 'qWK6UjtkpwVzHVHNV',        // EmailJS Account -> General -> Public Key
+    serviceId: 'service_zoq10oh',        // Email Services -> Service ID
+    templateId: 'template_rpokz8k'       // Email Templates -> Template ID
 };
 
 // Inicializálás

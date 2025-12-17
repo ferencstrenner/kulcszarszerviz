@@ -1,11 +1,11 @@
 # Robots.txt for Kulcs-Zár Szerviz Balatonfüred
-# https://kulcs-zar-szerviz.hu
+# https://kulcsmasolobalatonfured.hu
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://kulcs-zar-szerviz.hu/sitemap.xml
+Sitemap: https://kulcsmasolobalatonfured.hu/sitemap.xml
 
 # Disallow search engine crawling of admin/private areas (if any in future)
 # Disallow: /admin/
