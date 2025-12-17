@@ -91,10 +91,10 @@
 
     <!-- Defer non-critical styles to speed up LCP -->
     <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="css/responsive.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="css/responsive.css" as="style" onload="this.rel='stylesheet'">
     <noscript>
       <link rel="stylesheet" href="css/style.min.css">
-      <link rel="stylesheet" href="css/responsive.min.css">
+      <link rel="stylesheet" href="css/responsive.css">
     </noscript>
 
     <!-- Hero background is a color gradient — no image preloads needed -->
@@ -564,6 +564,27 @@
 
         // Frissítés minden percben
         setInterval(updateStoreStatus, 60000);
+
+        // Hamburger menu toggle (inline logic)
+        const hamburgerBtn = document.getElementById('hamburger-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (hamburgerBtn && mobileNav) {
+            hamburgerBtn.addEventListener('click', function() {
+                hamburgerBtn.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                console.log('Hamburger clicked, active:', hamburgerBtn.classList.contains('active'));
+            });
+
+            // Close menu when a link is clicked
+            const navLinks = mobileNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburgerBtn.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
