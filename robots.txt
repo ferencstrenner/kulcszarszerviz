@@ -1,11 +1,12 @@
 # Robots.txt for Kulcs-Zár Szerviz Balatonfüred
-# https://kulcsmasolobalatonfured.hu
+# Primary: https://furedkulcs.hu
+# Subdomain (redirects to primary): https://kulcsmasolobalatonfured.hu
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://kulcsmasolobalatonfured.hu/sitemap.xml
+Sitemap: https://furedkulcs.hu/sitemap.xml
 
 # Disallow search engine crawling of admin/private areas (if any in future)
 # Disallow: /admin/
