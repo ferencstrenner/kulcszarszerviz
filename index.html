@@ -377,13 +377,11 @@
                     </div>
                 </div>
                 <div class="hero-promo-box">
-                    <a href="services.html#korcsolyaélezés" style="text-decoration:none; color:inherit; display:block;">
-                      <span class="promo-badge-new">⚠️ Figyelem!</span>
-                      <h3>Korcsolyaélezés</h3>
-                      <p>Tökéletes él a tökéletes élményhez!</p>
-                      <p>Profi él, profi teljesítmény – légy a jég királya!</p>
-                      <p class="promo-small">Gyors, precíz, megfizethető</p>
-                    </a>
+                    <span class="promo-badge-new">🎄 Kedves Vásárlóink!</span>
+                    <h3>Karácsonyi szünet</h3>
+                    <p>Üzletünk január 5-ig zárva tart.</p>
+                    <p style="margin-top: 10px; font-size: 1rem; line-height: 1.4;">🎅 Boldog, békés karácsonyt és sikerekben gazdag, boldog új évet kívánunk!</p>
+                    <p class="promo-small" style="margin-top: 10px;">Találkozunk 2025-ben! 🎉</p>
                 </div>
             </div>
         </div>
@@ -519,9 +517,42 @@
             const hours = now.getHours();
             const minutes = now.getMinutes();
             const currentTime = hours * 60 + minutes;
+            const currentYear = now.getFullYear();
 
             const statusIndicator = document.getElementById('status-indicator');
             const statusText = document.getElementById('status-text');
+
+            // Karácsonyi szünet: 2025. december 21 - 2026. január 4.
+            const holidayBreakStart = new Date('2025-12-21');
+            const holidayBreakEnd = new Date('2026-01-04T23:59:59');
+            
+            if (now >= holidayBreakStart && now <= holidayBreakEnd) {
+                statusIndicator.classList.remove('open');
+                statusText.innerHTML = 'Üzletünk éppen: <strong style="color:#c41e3a">Zárva</strong><br><small style="font-size:11px;color:#666">Karácsonyi szünet - Nyitás: 2026. január 5.</small>';
+                return;
+            }
+
+            // Magyar ünnepnapok (formátum: 'YYYY-MM-DD')
+            const holidays = [
+                `${currentYear}-01-01`, // Újév
+                `${currentYear}-03-15`, // Nemzeti ünnep
+                `${currentYear}-04-18`, // Nagypéntek (változó)
+                `${currentYear}-04-21`, // Húsvéthétfő (változó)
+                `${currentYear}-05-01`, // Munka ünnepe
+                `${currentYear}-06-08`, // Pünkösdvasárnap (változó)
+                `${currentYear}-06-09`, // Pünkösdhétfő (változó)
+                `${currentYear}-08-20`, // Szent István napja
+                `${currentYear}-10-23`, // Nemzeti ünnep
+                `${currentYear}-11-01`, // Mindenszentek
+                `${currentYear}-12-24`, // Szenteste
+                `${currentYear}-12-25`, // Karácsony 1. nap
+                `${currentYear}-12-26`, // Karácsony 2. nap
+                `${currentYear}-12-31`  // Szilveszter
+            ];
+
+            // Ellenőrizd, hogy ma ünnepnap-e
+            const todayString = now.toISOString().split('T')[0];
+            const isHoliday = holidays.includes(todayString);
 
             let isOpen = false;
             let nextOpening = '';
@@ -532,7 +563,10 @@
             const afternoonStart = 13 * 60; // 13:00
             const afternoonEnd = 16 * 60 + 30; // 16:30
 
-            if (day >= 1 && day <= 5) {
+            if (isHoliday) {
+                // Ünnepnapon zárva
+                nextOpening = 'Ünnepnap - következő nyitás a következő munkanapon';
+            } else if (day >= 1 && day <= 5) {
                 if ((currentTime >= morningStart && currentTime < morningEnd) ||
                     (currentTime >= afternoonStart && currentTime < afternoonEnd)) {
                     isOpen = true;
