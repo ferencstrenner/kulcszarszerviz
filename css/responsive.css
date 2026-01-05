@@ -105,7 +105,13 @@
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 17px !important;
+    }
+
+    .logo img,
+    .logo picture {
+        max-width: 90px !important;
+        height: auto !important;
     }
 
     nav {
@@ -376,14 +382,14 @@
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 14px !important;
         gap: 8px;
         flex: 1;
     }
 
     .logo img,
     .logo picture {
-        max-width: 50px !important;
+        max-width: 90px !important;
         height: auto !important;
     }
 

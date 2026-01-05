@@ -250,7 +250,7 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <a href="index.html" class="logo"><picture><source type="image/webp" srcset="images\Logo\logokulcs-64w.webp 64w, images\Logo\logokulcs-128w.webp 128w, images\Logo\logokulcs-256w.webp 256w"><img src="images/Logo/logokulcs.png"        sizes="(max-width: 600px) 50vw, 100px"      alt="Kulcs-Zár Szerviz Balatonfüred" width="500" height="500" style="max-width: 100px; height: auto;"></picture>Kulcs-Zár Szerviz Balatonfüred</a>
+            <a href="index.html" class="logo"><picture><source type="image/webp" srcset="images/Logo/logokulcs-64w.webp 64w, images/Logo/logokulcs-128w.webp 128w, images/Logo/logokulcs-256w.webp 256w"><img src="images/Logo/logokulcs.png"        sizes="(max-width: 600px) 50vw, 140px"      alt="Kulcs-Zár Szerviz Balatonfüred" width="500" height="500" style="max-width: 140px; height: auto;"></picture>Kulcs-Zár Szerviz Balatonfüred</a>
             <button class="hamburger" id="hamburger-toggle" aria-label="Menü">
                 <span></span>
                 <span></span>
@@ -332,27 +332,27 @@
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name" data-i18n="contact_form_name">Név *</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email" data-i18n="contact_form_email">Email *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
                     </div>
 
                     <div class="form-group">
                         <label for="phone" data-i18n="contact_form_phone">Telefon</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" autocomplete="tel">
                     </div>
 
                     <div class="form-group">
                         <label for="subject" data-i18n="contact_form_subject">Tárgy *</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" autocomplete="on" required>
                     </div>
 
                     <div class="form-group">
                         <label for="message" data-i18n="contact_form_message">Üzenet *</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" autocomplete="on" required></textarea>
                     </div>
 
                     <button type="submit" class="form-submit" data-i18n="contact_form_submit">Küldés</button>
