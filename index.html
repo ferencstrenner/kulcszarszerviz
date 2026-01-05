@@ -63,6 +63,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- CSS betöltés -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
     <!-- Critical CSS inlined for faster first-paint -->
     <style>
       /* Critical: header + hero basic layout */
@@ -73,8 +78,8 @@
       .logo{font-size:20px;font-weight:700;color:#c41e3a;text-decoration:none;display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif}
       nav{display:flex;align-items:center}
       nav a{text-decoration:none;color:#666;margin:0 15px;font-weight:500}
-      .hero{background:linear-gradient(135deg,#4a4a4a 0%,#b3aeae 100%);color:#1a1a1a;padding:30px 20px;text-align:center;position:relative;overflow:hidden}
-      .hero-content{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+      .hero{background:linear-gradient(135deg,#4a4a4a 0%,#b3aeae 100%);color:#1a1a1a;padding:50px 50px;text-align:center;position:relative;overflow:visible}
+      .hero-content{max-width:1400px;margin:0 auto;position:relative;z-index:2}
       .hero h1{font-size:40px;margin-bottom:10px;color:#1a1a1a}
       .hero h2{font-size:18px;margin-bottom:10px;color:#1a1a1a}
       .hero-status{position:absolute;left:20px;top:12px;background:rgba(255,255,255,.95);border-radius:10px;padding:12px 14px;box-shadow:0 4px 15px rgba(0,0,0,.15);border:2px solid rgba(196,30,58,.2);display:flex;align-items:center;gap:10px}
@@ -88,14 +93,6 @@
         .hero h2{font-size:16px}
       }
     </style>
-
-    <!-- Defer non-critical styles to speed up LCP -->
-    <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="css/responsive.css" as="style" onload="this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="css/style.min.css">
-      <link rel="stylesheet" href="css/responsive.css">
-    </noscript>
 
     <!-- Hero background is a color gradient — no image preloads needed -->
     
@@ -336,10 +333,21 @@
                 <span></span>
             </button>
             <nav id="mobile-nav">
-                <a href="index.html">Kezdőlap</a>
-                <a href="services.html">Szolgáltatások</a>
-                <a href="about.html">Rólunk</a>
-                <a href="contact.html">Kapcsolat</a>
+                <a href="index.html" data-i18n="nav_home">Főoldal</a>
+                <a href="services.html" data-i18n="nav_services">Szolgáltatások</a>
+                <a href="about.html" data-i18n="nav_about">Rólunk</a>
+                <a href="contact.html" data-i18n="nav_contact">Kapcsolat</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLanguage('hu')" title="Magyar">
+                        <img src="images/flags/hu.svg" alt="HU" class="flag-icon"> HU
+                    </button>
+                    <button class="lang-btn" onclick="setLanguage('de')" title="Deutsch">
+                        <img src="images/flags/de.svg" alt="DE" class="flag-icon"> DE
+                    </button>
+                    <button class="lang-btn" onclick="setLanguage('en')" title="English">
+                        <img src="images/flags/gb.svg" alt="EN" class="flag-icon"> EN
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -355,9 +363,9 @@
                     </div>
                 </a>
                 <div class="hero-text">
-                    <h1>Kulcs-Zár Szerviz Balatonfüred</h1>
-                    <h2>Kulcsmásolás, Zárjavítás, Autókulcs, Élezés</h2>
-                    <p class="hero-subtitle">20+ év tapasztalat • Mul-T-Lock partner • Gyors szolgáltatás<br>Kés-, olló- és korcsolyaélezés • Gravírozás • Ingyenes árajánlat</p>
+                    <h1 data-i18n="hero_title">Kulcs-Zár Szerviz Balatonfüred</h1>
+                    <h2 data-i18n="hero_h2">Kulcsmásolás, Zárjavítás, Autókulcs, Élezés</h2>
+                    <p class="hero-subtitle" data-i18n="hero_subtitle">20+ év tapasztalat • Mul-T-Lock partner • Gyors szolgáltatás<br>Kés-, olló- és korcsolyaélezés • Gravírozás • Ingyenes árajánlat</p>
                     <div class="hero-social">
                         <a href="tel:+36302177013" class="social-icon phone" title="Hívás">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -377,11 +385,11 @@
                     </div>
                 </div>
                 <div class="hero-promo-box">
-                    <span class="promo-badge-new">🎄 Kedves Vásárlóink!</span>
-                    <h3>Karácsonyi szünet</h3>
-                    <p>Üzletünk január 5-ig zárva tart.</p>
-                    <p style="margin-top: 10px; font-size: 1rem; line-height: 1.4;">🎅 Boldog, békés karácsonyt és sikerekben gazdag, boldog új évet kívánunk!</p>
-                    <p class="promo-small" style="margin-top: 10px;">Találkozunk 2026-ban! 🎉</p>
+                    <span class="promo-badge-new" data-i18n="promo_badge">⛸️ ÚJ!</span>
+                    <h3 data-i18n="promo_title">Korcsolyaélezés</h3>
+                    <p data-i18n="promo_subtitle">Tökéletes él a tökéletes élményhez!</p>
+                    <p style="margin-top: 10px; font-size: 1rem; line-height: 1.4;" data-i18n="promo_description">Hozd el a korcsolyád, és éleztesd nálunk gyorsan, precízen, megfizethető áron. Sportolóknak és hobbistáknak egyaránt.</p>
+                    <a href="services.html#korcsolyaélezés" class="promo-small" style="margin-top: 10px; color: #ffdd00; text-decoration: underline;" data-i18n="promo_link">Tudj meg többet →</a>
                 </div>
             </div>
         </div>
@@ -391,55 +399,55 @@
 
     <!-- Services -->
     <section class="services" id="services">
-        <h2>Kulcs-Zár Szerviz Balatonfüred - Szolgáltatásaink</h2>
+        <h2 data-i18n="services_title">Kulcs-Zár Szerviz Balatonfüred - Szolgáltatásaink</h2>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/keycopy-320w.webp 320w, images/services/keycopy-480w.webp 480w, images/services/keycopy-640w.webp 640w, images/services/keycopy-768w.webp 768w, images/services/keycopy-1024w.webp 1024w"><img src="images/services/keycopy.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Kulcsmásolás - Gyors kulcsmásolás minden típusú kulcshoz Balatonfüreden" width="1024" height="799" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Kulcsmásolás</h3>
-                <p>Gyors és precíz kulcsmásolás szinte minden típusú kulcshoz. Hagyományos kulcsok, biztonsági kulcsok, lakáskulcsok, irodakulcsok. Azonnali szolgáltatás, kedvező árak. Kulcsra van szükséged? Mi azonnal segítünk!</p>
-                <button class="service-btn" onclick="location.href='services.html#kulcsmasolas'">Több...</button>
+                <h3 data-i18n="service_keys_title">Kulcsmásolás</h3>
+                <p data-i18n="service_keys_desc">Gyors és precíz kulcsmásolás szinte minden típusú kulcshoz. Hagyományos kulcsok, biztonsági kulcsok, lakáskulcsok, irodakulcsok. Azonnali szolgáltatás, kedvező árak. Kulcsra van szükséged? Mi azonnal segítünk!</p>
+                <button class="service-btn" onclick="location.href='services.html#kulcsmasolas'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/lockrepair-320w.webp 320w, images/services/lockrepair-480w.webp 480w, images/services/lockrepair-640w.webp 640w, images/services/lockrepair-768w.webp 768w, images/services/lockrepair-1024w.webp 1024w"><img src="images/services/lockrepair.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Zárjavítás és zárcsere - Szakszerű zárszerviz Balatonfüreden" width="1024" height="1024" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Zárjavítás</h3>
-                <p>Szakszerű zárjavítás és zárcsere szolgáltatás. Zárbetét csere, zár olajozás, zár tisztítás. Mul-T-Lock biztonsági zárak hivatalos partnere. Elromlott a zár? Ne kockáztass! Gyors és biztonságos zárjavítás profi szakembertől.</p>
-                <button class="service-btn" onclick="location.href='services.html#zarjavitas'">Több...</button>
+                <h3 data-i18n="service_locks_title">Zárjavítás</h3>
+                <p data-i18n="service_locks_desc">Szakszerű zárjavítás és zárcsere szolgáltatás. Zárbetét csere, zár olajozás, zár tisztítás. Mul-T-Lock biztonsági zárak hivatalos partnere. Elromlott a zár? Ne kockáztass! Gyors és biztonságos zárjavítás profi szakembertől.</p>
+                <button class="service-btn" onclick="location.href='services.html#zarjavitas'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/autokey-320w.webp 320w, images/services/autokey-480w.webp 480w, images/services/autokey-640w.webp 640w, images/services/autokey-768w.webp 768w, images/services/autokey-1024w.webp 1024w"><img src="images/services/autokey.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Autókulcs másolás és programozás - Modern járművek kulcsszolgáltatás" width="1024" height="1024" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Autókulcs</h3>
-                <p>Autókulcs másolás és programozás. Távirányítós kulcsok, chip kulcsok, intelligens kulcsok. Autókulcs-másolás gyorsan és biztonságosan. Profi gépekkel, tapasztalt szakemberrel.</p>
-                <button class="service-btn" onclick="location.href='services.html#autókulcs'">Több...</button>
+                <h3 data-i18n="service_car_title">Autókulcs</h3>
+                <p data-i18n="service_car_desc">Autókulcs másolás és programozás. Távirányítós kulcsok, chip kulcsok, intelligens kulcsok. Autókulcs-másolás gyorsan és biztonságosan. Profi gépekkel, tapasztalt szakemberrel.</p>
+                <button class="service-btn" onclick="location.href='services.html#autókulcs'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/knife-320w.webp 320w, images/services/knife-480w.webp 480w, images/services/knife-640w.webp 640w, images/services/knife-768w.webp 768w, images/services/knife-1024w.webp 1024w"><img src="images/services/knife.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Élezés - Kés, olló, korcsolya élezés professzionális szolgáltatás" width="1024" height="1024" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Élezés</h3>
-                <p>Professzionális kés és olló élezés. Konyhai eszközök, szakácskések, kertészeti eszközök. Precíz, éles eredmény. Éles eszköz = könnyebb munka! Kés-, olló- és szerszámélezés modern technológiával.</p>
-                <button class="service-btn" onclick="location.href='services.html#élezés'">Több...</button>
+                <h3 data-i18n="service_sharp_title">Élezés</h3>
+                <p data-i18n="service_sharp_desc">Professzionális kés és olló élezés. Konyhai eszközök, szakácskések, kertészeti eszközök. Precíz, éles eredmény. Éles eszköz = könnyebb munka! Kés-, olló- és szerszámélezés modern technológiával.</p>
+                <button class="service-btn" onclick="location.href='services.html#élezés'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/engraving-320w.webp 320w, images/services/engraving-480w.webp 480w, images/services/engraving-640w.webp 640w, images/services/engraving-768w.webp 768w, images/services/engraving-1024w.webp 1024w"><img src="images/services/engraving.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Gravírozás - Egyedi gravírozás ajándéktárgyakra és kulcsokra" width="1024" height="1024" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Gravírozás</h3>
-                <p>Személyre szabott feliratok, logók, nevek. Minőségi munka, kedvező árak. Névtáblák és egyéb feliratok gravírozása profi minőségben!</p>
-                <button class="service-btn" onclick="location.href='services.html#gravírozás'">Több...</button>
+                <h3 data-i18n="service_engrave_title">Gravírozás</h3>
+                <p data-i18n="service_engrave_desc">Személyre szabott feliratok, logók, nevek. Minőségi munka, kedvező árak. Névtáblák és egyéb feliratok gravírozása profi minőségben!</p>
+                <button class="service-btn" onclick="location.href='services.html#gravírozás'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/Logo/mul-t-lock-320w.webp 320w, images/Logo/mul-t-lock-480w.webp 480w, images/Logo/mul-t-lock-640w.webp 640w, images/Logo/mul-t-lock-768w.webp 768w, images/Logo/mul-t-lock-1024w.webp 1024w"><img src="images/Logo/mul-t-lock.jpg"     sizes="(max-width: 600px) 50vw, 100px"      alt="Mul-T-Lock hivatalos partner - Prémium biztonsági zárak" width="1073" height="1073" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Mul-T-Lock</h3>
-                <p>Mul-T-Lock biztonsági zárak telepítése és javítása. Biztonság kompromisszumok nélkül – Mul-T-Lock! Viszonteladó partnerként kínáljuk a Mul-T-Lock prémium termékeit: biztonsági zárak, kulcsrendszerek, cilinderbetétek.</p>
-                <button class="service-btn" onclick="location.href='services.html#multlock'">Több...</button>
+                <h3 data-i18n="service_multlock_title">Mul-T-Lock</h3>
+                <p data-i18n="service_multlock_desc">Mul-T-Lock biztonsági zárak telepítése és javítása. Biztonság kompromisszumok nélkül – Mul-T-Lock! Viszonteladó partnerként kínáljuk a Mul-T-Lock prémium termékeit: biztonsági zárak, kulcsrendszerek, cilinderbetétek.</p>
+                <button class="service-btn" onclick="location.href='services.html#multlock'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/skate-320w.webp 320w, images/services/skate-480w.webp 480w, images/services/skate-640w.webp 640w, images/services/skate-768w.webp 768w, images/services/skate-1024w.webp 1024w"><img src="images/services/skate.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Korcsolyaélezés - Profi korcsolyaélezés műkorcsolyázók és jégkorong játékosok számára" width="1024" height="1024" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Korcsolyaélezés</h3>
-                <p>Profi korcsolyaélezés a maximális gyorsaságért és stabilitásért a jégen. Gyors, precíz, megfizethető korcsolyaélezés Balatonfüred központjában.</p>
-                <button class="service-btn" onclick="location.href='services.html#korcsolyaélezés'">Több...</button>
+                <h3 data-i18n="service_skate_title">Korcsolyaélezés</h3>
+                <p data-i18n="service_skate_desc">Profi korcsolyaélezés a maximális gyorsaságért és stabilitásért a jégen. Gyors, precíz, megfizethető korcsolyaélezés Balatonfüred központjában.</p>
+                <button class="service-btn" onclick="location.href='services.html#korcsolyaélezés'" data-i18n="btn_more">Több...</button>
             </div>
             <div class="service-card">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images/services/sales-320w.webp 320w, images/services/sales-480w.webp 480w, images/services/sales-640w.webp 640w, images/services/sales-768w.webp 768w, images/services/sales-1024w.webp 1024w"><img src="images/services/sales.png"     sizes="(max-width: 600px) 50vw, 160px"      alt="Értékesítés - Profi értékesítési szolgáltatások" width="1024" height="1024" style="max-width: 50%; height: auto;" loading="lazy" decoding="async"></picture></div>
-                <h3>Értékesítés</h3>
-                <p>Balatonfüredi üzletünkben mindent megtalál, ami a biztonsághoz kell: zárak, lakatok, kulcsok és kiegészítők – egy helyen, kényelmesen! Egyedi igény esetén gyorsan és kedvező áron beszerezzük, amire szüksége van.</p>
-                <button class="service-btn" onclick="location.href='services.html#értékesítés'">Több...</button>
+                <h3 data-i18n="service_sales_title">Értékesítés</h3>
+                <p data-i18n="service_sales_desc">Balatonfüredi üzletünkben mindent megtalál, ami a biztonsághoz kell: zárak, lakatok, kulcsok és kiegészítők – egy helyen, kényelmesen! Egyedi igény esetén gyorsan és kedvező áron beszerezzük, amire szüksége van.</p>
+                <button class="service-btn" onclick="location.href='services.html#értékesítés'" data-i18n="btn_more">Több...</button>
             </div>
         </div>
         <div class="seo-contact">
@@ -454,31 +462,31 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Rólunk</h4>
-                <p>Cseh János vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, zárszervizről, gravírozásról vagy késélezésről.</p>
+                <h4 data-i18n="footer_about_title">Rólunk</h4>
+                <p data-i18n="footer_about_text">Cseh János vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, zárszervizről, gravírozásról vagy késélezésről.</p>
             </div>
             <div class="footer-section">
-                <h4>Kapcsolat</h4>
+                <h4 data-i18n="footer_contact_title">Kapcsolat</h4>
                 <p>Telefon: <a href="tel:+36302177013">+36 30 217 7013</a></p>
                 <p>Email: <a href="mailto:kulcs.zar.szerviz@gmail.com">kulcs.zar.szerviz@gmail.com</a></p>
                 <p>Cím: Balatonfüred, Malom köz 2. Vásárcsarnok</p>
             </div>
             <div class="footer-section">
-                <h4>Nyitvatartás</h4>
-                <p>H–P: 08:00–12:30, 13:00–16:30</p>
-                <p class="closed">Szo–Va: Zárva</p>
+                <h4 data-i18n="footer_hours_title">Nyitvatartás</h4>
+                <p data-i18n="footer_hours_weekday">H–P: 08:00–12:30, 13:00–16:30</p>
+                <p class="closed" data-i18n="footer_hours_weekend">Szo–Va: Zárva</p>
             </div>
             <div class="footer-section">
-                <h4>Gyorslinkek</h4>
+                <h4 data-i18n="footer_quicklinks_title">Gyorslinkek</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Kezdőlap</a></li>
-                    <li><a href="services.html">Szolgáltatások</a></li>
-                    <li><a href="about.html">Rólunk</a></li>
-                    <li><a href="contact.html">Kapcsolat</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Kezdőlap</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Szolgáltatások</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">Rólunk</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Kapcsolat</a></li>
                 </ul>
             </div>
             <div class="footer-section reviews-section">
-                <h4>Google Értékelések</h4>
+                <h4 data-i18n="footer_reviews_title">Google Értékelések</h4>
                 <div class="reviews-carousel">
                     <div class="review-item">
                         <div class="review-stars">★★★★★</div>
@@ -509,6 +517,7 @@
         </div>
     </footer>
 
+    <script src="js/translations.js"></script>
     <script src="js/main.min.js" defer></script>
     <script>
         function updateStoreStatus() {
@@ -528,7 +537,11 @@
             
             if (now >= holidayBreakStart && now <= holidayBreakEnd) {
                 statusIndicator.classList.remove('open');
-                statusText.innerHTML = 'Üzletünk éppen: <strong style="color:#c41e3a">Zárva</strong><br><small style="font-size:11px;color:#666">Karácsonyi szünet - Nyitás: 2026. január 5.</small>';
+                const currentLang = localStorage.getItem('language') || 'hu';
+                const statusPrefix = translations[currentLang]?.status_prefix || 'Üzletünk éppen:';
+                const statusClosed = translations[currentLang]?.status_closed || 'Zárva';
+                const holidayNote = translations[currentLang]?.status_holiday_note || 'Karácsonyi szünet - Nyitás: 2026. január 5.';
+                statusText.innerHTML = `${statusPrefix} <strong style="color:#c41e3a">${statusClosed}</strong><br><small style="font-size:11px;color:#666">${holidayNote}</small>`;
                 return;
             }
 
@@ -565,30 +578,40 @@
 
             if (isHoliday) {
                 // Ünnepnapon zárva
-                nextOpening = 'Ünnepnap - következő nyitás a következő munkanapon';
+                const currentLang = localStorage.getItem('language') || 'hu';
+                nextOpening = translations[currentLang]?.status_holiday || 'Ünnepnap - következő nyitás a következő munkanapon';
             } else if (day >= 1 && day <= 5) {
                 if ((currentTime >= morningStart && currentTime < morningEnd) ||
                     (currentTime >= afternoonStart && currentTime < afternoonEnd)) {
                     isOpen = true;
                 } else if (currentTime < morningStart) {
-                    nextOpening = 'Nyitás: Ma 08:00';
+                    const currentLang = localStorage.getItem('language') || 'hu';
+                    nextOpening = translations[currentLang]?.status_opens_today_morning || 'Nyitás: Ma 08:00';
                 } else if (currentTime >= morningEnd && currentTime < afternoonStart) {
-                    nextOpening = 'Nyitás: Ma 13:00';
+                    const currentLang = localStorage.getItem('language') || 'hu';
+                    nextOpening = translations[currentLang]?.status_opens_today_afternoon || 'Nyitás: Ma 13:00';
                 } else {
                     // Este már zárva - holnap nyit
-                    nextOpening = 'Nyitás: Holnap 08:00';
+                    const currentLang = localStorage.getItem('language') || 'hu';
+                    nextOpening = translations[currentLang]?.status_opens_tomorrow || 'Nyitás: Holnap 08:00';
                 }
             } else {
                 // Hétvégén zárva
-                nextOpening = 'Nyitás: Hétfő 08:00';
+                const currentLang = localStorage.getItem('language') || 'hu';
+                nextOpening = translations[currentLang]?.status_opens_monday || 'Nyitás: Hétfő 08:00';
             }
 
+            const currentLang = localStorage.getItem('language') || 'hu';
+            const statusPrefix = translations[currentLang]?.status_prefix || 'Üzletünk éppen:';
+            const statusOpen = translations[currentLang]?.status_open || 'Nyitva';
+            const statusClosed = translations[currentLang]?.status_closed || 'Zárva';
+            
             if (isOpen) {
                 statusIndicator.classList.add('open');
-                statusText.innerHTML = 'Üzletünk éppen: <strong style="color:#28a745">Nyitva</strong>';
+                statusText.innerHTML = `${statusPrefix} <strong style="color:#28a745">${statusOpen}</strong>`;
             } else {
                 statusIndicator.classList.remove('open');
-                statusText.innerHTML = 'Üzletünk éppen: <strong style="color:#c41e3a">Zárva</strong>' + 
+                statusText.innerHTML = `${statusPrefix} <strong style="color:#c41e3a">${statusClosed}</strong>` + 
                                        (nextOpening ? '<br><small style="font-size:11px;color:#666">' + nextOpening + '</small>' : '');
             }
         }

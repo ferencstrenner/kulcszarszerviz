@@ -22,12 +22,8 @@
             .about-hero{padding:30px 20px; text-align:center}
             .about-hero h1{font-size:28px}
         </style>
-        <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
-        <link rel="preload" href="css/responsive.css" as="style" onload="this.rel='stylesheet'">
-        <noscript>
-            <link rel="stylesheet" href="css/style.min.css">
-            <link rel="stylesheet" href="css/responsive.css">
-        </noscript>
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="css/responsive.css">
     <style>
         .about-section {
             padding: 80px 50px;
@@ -163,10 +159,21 @@
                 <span></span>
             </button>
             <nav id="mobile-nav">
-                <a href="index.html">Kezdőlap</a>
-                <a href="services.html">Szolgáltatások</a>
-                <a href="about.html">Rólunk</a>
-                <a href="contact.html">Kapcsolat</a>
+                <a href="index.html" data-i18n="nav_home">Főoldal</a>
+                <a href="services.html" data-i18n="nav_services">Szolgáltatások</a>
+                <a href="about.html" data-i18n="nav_about">Rólunk</a>
+                <a href="contact.html" data-i18n="nav_contact">Kapcsolat</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLanguage('hu')" title="Magyar">
+                        <img src="images/flags/hu.svg" alt="HU" class="flag-icon"> HU
+                    </button>
+                    <button class="lang-btn" onclick="setLanguage('de')" title="Deutsch">
+                        <img src="images/flags/de.svg" alt="DE" class="flag-icon"> DE
+                    </button>
+                    <button class="lang-btn" onclick="setLanguage('en')" title="English">
+                        <img src="images/flags/gb.svg" alt="EN" class="flag-icon"> EN
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -174,25 +181,25 @@
     <!-- About Section -->
     <section class="about-section">
         <div class="about-header">
-            <h1>Rólunk</h1>
-            <p class="tagline">Kulcs a biztonsághoz – szívből, Balatonfüreden</p>
+            <h1 data-i18n="about_h1">Rólunk</h1>
+            <p class="tagline" data-i18n="about_tagline">Kulcs a biztonsághoz – szívből, Balatonfüreden</p>
         </div>
 
         <div class="about-content">
             <div class="about-text">
-                <p>
+                <p data-i18n="about_p1">
                     <strong>Cseh János</strong> vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. 
                     Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, 
                     zárszervizről, gravírozásról vagy késélezésről.
                 </p>
 
-                <p>
+                <p data-i18n="about_p2">
                     A <strong>Mul-T-Lock hivatalos partnereként</strong> megbízható, minőségi zárbetétek és lakatok széles 
                     választékát kínálom, hogy otthona és értékei mindig biztonságban legyenek. Rugalmasan alkalmazkodom az 
                     igényekhez, és mindig arra törekszem, hogy gyors, pontos és segítőkész kiszolgálást nyújtsak.
                 </p>
 
-                <p>
+                <p data-i18n="about_p3">
                     Ha fontos Önnek a <strong>szakértelem</strong>, a <strong>jó hangulat</strong> és a <strong>korrekt ár</strong>, 
                     térjen be hozzám – nálam a biztonság és a figyelmesség kéz a kézben jár.
                 </p>
@@ -203,20 +210,20 @@
 
         <div class="about-highlights">
             <div class="highlight-card">
-                <h3>20+ Év Tapasztalat</h3>
-                <p>Több mint két évtizedes szakmai tudás és elhivatottság</p>
+                <h3 data-i18n="about_highlight1_h3">20+ Év Tapasztalat</h3>
+                <p data-i18n="about_highlight1_p">Több mint két évtizedes szakmai tudás és elhivatottság</p>
             </div>
             <div class="highlight-card">
-                <h3>Mul-T-Lock Partner</h3>
-                <p>Hivatalos partnerség az egyik legmegbízhatóbb zárgyártóval</p>
+                <h3 data-i18n="about_highlight2_h3">Mul-T-Lock Partner</h3>
+                <p data-i18n="about_highlight2_p">Hivatalos partnerség az egyik legmegbízhatóbb zárgyártóval</p>
             </div>
             <div class="highlight-card">
-                <h3>Balatonfüred</h3>
-                <p>Helyi szakértelem és közösségi kapcsolatok</p>
+                <h3 data-i18n="about_highlight3_h3">Balatonfüred</h3>
+                <p data-i18n="about_highlight3_p">Helyi szakértelem és közösségi kapcsolatok</p>
             </div>
             <div class="highlight-card">
-                <h3>Minőségi Munka</h3>
-                <p>Precizitás, gyorsaság és segítőkész attitűd</p>
+                <h3 data-i18n="about_highlight4_h3">Minőségi Munka</h3>
+                <p data-i18n="about_highlight4_p">Precizitás, gyorsaság és segítőkész attitűd</p>
             </div>
         </div>
     </section>
@@ -225,31 +232,31 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Rólunk</h4>
-                <p>Cseh János vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, zárszervizről, gravírozásról vagy késélezésről.</p>
+                <h4 data-i18n="footer_about_title">Rólunk</h4>
+                <p data-i18n="footer_about_text">Cseh János vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, zárszervizről, gravírozásról vagy késélezésről.</p>
             </div>
             <div class="footer-section">
-                <h4>Kapcsolat</h4>
+                <h4 data-i18n="footer_contact_title">Kapcsolat</h4>
                 <p>Telefon: <a href="tel:+36302177013">+36 30 217 7013</a></p>
                 <p>Email: <a href="mailto:kulcs.zar.szerviz@gmail.com">kulcs.zar.szerviz@gmail.com</a></p>
                 <p>Cím: Balatonfüred, Malom köz 2. Vásárcsarnok</p>
             </div>
             <div class="footer-section">
-                <h4>Nyitvatartás</h4>
-                <p>H–P: 08:00–12:30, 13:00–16:30</p>
-                <p class="closed">Szo–Va: Zárva</p>
+                <h4 data-i18n="footer_hours_title">Nyitvatartás</h4>
+                <p data-i18n="footer_hours_weekday">H–P: 08:00–12:30, 13:00–16:30</p>
+                <p class="closed" data-i18n="footer_hours_weekend">Szo–Va: Zárva</p>
             </div>
             <div class="footer-section">
-                <h4>Gyorslinkek</h4>
+                <h4 data-i18n="footer_quicklinks_title">Gyorslinkek</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Kezdőlap</a></li>
-                    <li><a href="services.html">Szolgáltatások</a></li>
-                    <li><a href="about.html">Rólunk</a></li>
-                    <li><a href="contact.html">Kapcsolat</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Kezdőlap</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Szolgáltatások</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">Rólunk</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Kapcsolat</a></li>
                 </ul>
             </div>
             <div class="footer-section reviews-section">
-                <h4>Google Értékelések</h4>
+                <h4 data-i18n="footer_reviews_title">Google Értékelések</h4>
                 <div class="reviews-carousel">
                     <div class="review-item">
                         <div class="review-stars">★★★★★</div>
@@ -300,6 +307,7 @@
             });
         }
     </script>
+    <script src="js/translations.js"></script>
     <script src="js/main.min.js" defer></script>
 </body>
 </html>

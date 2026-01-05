@@ -16,19 +16,19 @@
         <style>
             *{margin:0;padding:0;box-sizing:border-box}
             body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#333}
-            header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:8px 20px;position:sticky;top:0;z-index:100}
+            header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:8px 50px;position:sticky;top:0;z-index:100}
             .header-content{display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto}
-            .logo{font-size:20px;font-weight:700;color:#c41e3a;text-decoration:none;display:flex;align-items:center;gap:10px}
-            nav a{text-decoration:none;color:#666;margin:0 15px}
+            .logo{font-size:24px;font-weight:700;color:#c41e3a;text-decoration:none;display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif}
+            nav{display:flex;align-items:center}
+            nav a{text-decoration:none;color:#666;margin:0 25px;font-weight:500}
             .services{padding:40px 20px}
             .services h2{font-size:36px;text-align:center;margin-bottom:30px}
+            .lang-switcher{display:flex;gap:8px;align-items:center;margin-left:20px;padding-left:20px;border-left:1px solid #e0e0e0}
+            .lang-btn{background:#fff;border:2px solid #ddd;color:#333;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px}
+            .lang-btn.active{background:linear-gradient(135deg,#c41e3a 0%,#d43f5a 100%);color:#fff;border-color:#c41e3a}
+            .flag-icon{width:20px;height:15px;border-radius:2px}
         </style>
-        <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
-        <link rel="preload" href="css/responsive.css" as="style" onload="this.rel='stylesheet'">
-        <noscript>
-            <link rel="stylesheet" href="css/style.min.css">
-            <link rel="stylesheet" href="css/responsive.css">
-        </noscript>
+        
     <style>
         .services-page {
             padding: 80px 50px;
@@ -212,10 +212,21 @@
                 <span></span>
             </button>
             <nav id="mobile-nav">
-                <a href="index.html">Kezdőlap</a>
-                <a href="services.html">Szolgáltatások</a>
-                <a href="about.html">Rólunk</a>
-                <a href="contact.html">Kapcsolat</a>
+                <a href="index.html" data-i18n="nav_home">Főoldal</a>
+                <a href="services.html" data-i18n="nav_services">Szolgáltatások</a>
+                <a href="about.html" data-i18n="nav_about">Rólunk</a>
+                <a href="contact.html" data-i18n="nav_contact">Kapcsolat</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLanguage('hu')" title="Magyar">
+                        <img src="images/flags/hu.svg" alt="HU" class="flag-icon"> HU
+                    </button>
+                    <button class="lang-btn" onclick="setLanguage('de')" title="Deutsch">
+                        <img src="images/flags/de.svg" alt="DE" class="flag-icon"> DE
+                    </button>
+                    <button class="lang-btn" onclick="setLanguage('en')" title="English">
+                        <img src="images/flags/gb.svg" alt="EN" class="flag-icon"> EN
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -223,23 +234,23 @@
     <!-- Services Page -->
     <section class="services-page">
         <div class="page-header">
-            <h1>Szolgáltatásaink</h1>
-            <p>Professzionális zárszolgáltatások minden igényre. Több mint 20 év tapasztalat.</p>
+            <h1 data-i18n="services_page_h1">Szolgáltatásaink</h1>
+            <p data-i18n="services_page_p">Professzionális zárszolgáltatások minden igényre. Több mint 20 év tapasztalat.</p>
         </div>
 
         <!-- Kulcsmásolás -->
         <div class="service-detail" id="kulcsmasolas">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\keycopy-320w.webp 320w, images\services\keycopy-480w.webp 480w, images\services\keycopy-640w.webp 640w, images\services\keycopy-768w.webp 768w, images\services\keycopy-1024w.webp 1024w"><img src="images/services/keycopy.png"        sizes="160px"      alt="Kulcsmásolás - Gyors kulcsmásolás minden típusú kulcshoz Balatonfüreden" width="1024" height="799" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Kulcsmásolás</h2>
-                <p>Gyors és pontos kulcsmásolás szinte minden típusú zárhoz. Professzionális minőség garantálva. Modern technológiával dolgozunk, hogy minden kulcs tökéletesen passzoljon.</p>
+                <h2 data-i18n="serv_keys_h2">Kulcsmásolás</h2>
+                <p data-i18n="serv_keys_p">Gyors és pontos kulcsmásolás szinte minden típusú zárhoz. Professzionális minőség garantálva. Modern technológiával dolgozunk, hogy minden kulcs tökéletesen passzoljon.</p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Lakás és iroda kulcsok</span></div>
-                    <div class="feature-item"><span>Biztonsági zárak kulcsai</span></div>
-                    <div class="feature-item"><span>Speciális kulcsok</span></div>
-                    <div class="feature-item"><span>Gyors kiszolgálás</span></div>
-                    <div class="feature-item"><span>Precíz másolás</span></div>
-                    <div class="feature-item"><span>Kedvező árak</span></div>
+                    <div class="feature-item"><span data-i18n="serv_keys_f1">Lakás és iroda kulcsok</span></div>
+                    <div class="feature-item"><span data-i18n="serv_keys_f2">Biztonsági zárak kulcsai</span></div>
+                    <div class="feature-item"><span data-i18n="serv_keys_f3">Speciális kulcsok</span></div>
+                    <div class="feature-item"><span data-i18n="serv_keys_f4">Gyors kiszolgálás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_keys_f5">Precíz másolás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_keys_f6">Kedvező árak</span></div>
                 </div>
             </div>
         </div>
@@ -248,14 +259,14 @@
         <div class="service-detail" id="zarjavitas">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\lockrepair-320w.webp 320w, images\services\lockrepair-480w.webp 480w, images\services\lockrepair-640w.webp 640w, images\services\lockrepair-768w.webp 768w, images\services\lockrepair-1024w.webp 1024w"><img src="images/services/lockrepair.png"        sizes="160px"      alt="Zárjavítás és zárcsere - Szakszerű zárszerviz Balatonfüreden" width="1024" height="1024" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Zárjavítás</h2>
-                <p>Sérült vagy elromlott zárat javítunk gyorsan és szakszerűen. Megbízható megoldás minden zártípushoz, legyen szó lakásról, irodáról vagy üzletről.</p>
+                <h2 data-i18n="serv_locks_h2">Zárjavítás</h2>
+                <p data-i18n="serv_locks_p">Sérült vagy elromlott zárat javítunk gyorsan és szakszerűen. Megbízható megoldás minden zártípushoz, legyen szó lakásról, irodáról vagy üzletről.</p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Ajtózár javítás</span></div>
-                    <div class="feature-item"><span>Cilinder csere</span></div>
-                    <div class="feature-item"><span>Zármechanika javítás</span></div>
-                    <div class="feature-item"><span>Profi szerszámok</span></div>
-                    <div class="feature-item"><span>Gyors megoldás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_locks_f1">Ajtózár javítás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_locks_f2">Cilinder csere</span></div>
+                    <div class="feature-item"><span data-i18n="serv_locks_f3">Zármechanika javítás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_locks_f4">Profi szerszámok</span></div>
+                    <div class="feature-item"><span data-i18n="serv_locks_f5">Gyors megoldás</span></div>
                 </div>
             </div>
         </div>
@@ -264,16 +275,16 @@
         <div class="service-detail" id="autókulcs">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\autokey-320w.webp 320w, images\services\autokey-480w.webp 480w, images\services\autokey-640w.webp 640w, images\services\autokey-768w.webp 768w, images\services\autokey-1024w.webp 1024w"><img src="images/services/autokey.png"        sizes="160px"      alt="Autókulcs másolás és javítása modern technológiával" width="1024" height="1024" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Autókulcs</h2>
-                <p>Autókulcs másolása és javítása modern technológiával. Sérült autókulcs pótlása, a legjobb eredményért.</p>
+                <h2 data-i18n="serv_autokey_h2">Autókulcs</h2>
+                <p data-i18n="serv_autokey_p">Autókulcs másolása és javítása modern technológiával. Sérült autókulcs pótlása, a legjobb eredményért.</p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Autókulcs másolás</span></div>
-                    <div class="feature-item"><span>Chip kulcs programozás</span></div>
-                    <div class="feature-item"><span>Kulcs javítás</span></div>
-                    <div class="feature-item"><span>Különféle márkák</span></div>
-                    <div class="feature-item"><span>Szakértő tanácsadás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_autokey_f1">Autókulcs másolás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_autokey_f2">Chip kulcs programozás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_autokey_f3">Kulcs javítás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_autokey_f4">Különféle márkák</span></div>
+                    <div class="feature-item"><span data-i18n="serv_autokey_f5">Szakértő tanácsadás</span></div>
                 </div>
-                <p class="service-note">A pontos lehetőségek és költségek meghatározása előzetes egyeztetést igényel. Kérjük, vegye fel velünk a kapcsolatot további információért és időpont egyeztetésért!</p>
+                <p class="service-note" data-i18n="serv_autokey_note">A pontos lehetségek és költségek meghatározása előzetes egyeztetést igényel. Kérjük, vegye fel velünk a kapcsolatot további információért és időpont egyeztetésért!</p>
             </div>
         </div>
 
@@ -281,16 +292,16 @@
         <div class="service-detail" id="élezés">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\knife-320w.webp 320w, images\services\knife-480w.webp 480w, images\services\knife-640w.webp 640w, images\services\knife-768w.webp 768w, images\services\knife-1024w.webp 1024w"><img src="images/services/knife.png"        sizes="160px"      alt="Élezés - Kés, olló, korcsolya élezés professzionális szolgáltatás" width="1024" height="1024" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Élezés</h2>
-                <p>Professzionális késélezési szolgáltatás. Tompult kések, ollók és egyéb vágószerszámok élezése precízen és gyorsan.</p>
+                <h2 data-i18n="serv_sharp_h2">Élezés</h2>
+                <p data-i18n="serv_sharp_p">Professzionális késélezési szolgáltatás. Tompult kések, ollók és egyéb vágószerszbámok élezése precízen és gyorsan.</p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Konyhakések élezése</span></div>
-                    <div class="feature-item"><span>Olló élezés</span></div>
-                    <div class="feature-item"><span>Darálók élezése</span></div>
-                    <div class="feature-item"><span>Kerti szerszámok</span></div>
-                    <div class="feature-item"><span>Precíz munka</span></div>
-                    <div class="feature-item"><span>Gyors kiszolgálás</span></div>
-                    <div class="feature-item"><span>Korrekt árak</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f1">Konyakések élezése</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f2">Olló élezés</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f3">Darálók élezése</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f4">Kerti szerszbámok</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f5">Precíz munka</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f6">Gyors kiszolgálás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sharp_f7">Korrekt árak</span></div>
                 </div>
             </div>
         </div>
@@ -299,15 +310,15 @@
             <div class="service-detail" id="korcsolyaélezés">
                 <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\skate-320w.webp 320w, images\services\skate-480w.webp 480w, images\services\skate-640w.webp 640w, images\services\skate-768w.webp 768w, images\services\skate-1024w.webp 1024w"><img src="images/services/skate.png"        sizes="160px"      alt="Korcsolyaélezés - Tökéletes él a tökéletes élményhez!" width="1024" height="1024" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
                 <div class="service-detail-content">
-                    <h2>Korcsolyaélezés</h2>
-                    <p>Tökéletes él a tökéletes élményhez! Hozd el a korcsolyád, és éleztesd nálunk gyorsan, precízen, megfizethető áron. Sportolóknak és hobbistáknak egyaránt.</p>
+                    <h2 data-i18n="serv_skate_h2">Korcsolyaélezés</h2>
+                    <p data-i18n="serv_skate_p">Tökéletes él a tökéletes élményhez! Hozd el a korcsolyád, és éleztesd nálunk gyorsan, precízen, megfizethő áron. Sportolóknak és hobbistáknak egyaránt.</p>
                     <div class="service-features">
-                        <div class="feature-item"><span>Jégkorcsolya élezés</span></div>
-                        <div class="feature-item"><span>Gyermek és felnőtt korcsolyák</span></div>
-                        <div class="feature-item"><span>Sport és hobbi</span></div>
-                        <div class="feature-item"><span>Gyors átfutás</span></div>
-                        <div class="feature-item"><span>Profi gépek</span></div>
-                        <div class="feature-item"><span>Kedvező árak</span></div>
+                        <div class="feature-item"><span data-i18n="serv_skate_f1">Jégkorcsolya élezés</span></div>
+                        <div class="feature-item"><span data-i18n="serv_skate_f2">Gyermek és felnőtt korcsolyk</span></div>
+                        <div class="feature-item"><span data-i18n="serv_skate_f3">Sport és hobbi</span></div>
+                        <div class="feature-item"><span data-i18n="serv_skate_f4">Gyors átfutás</span></div>
+                        <div class="feature-item"><span data-i18n="serv_skate_f5">Profi gépek</span></div>
+                        <div class="feature-item"><span data-i18n="serv_skate_f6">Kedvező árak</span></div>
                     </div>
                 </div>
             </div>
@@ -316,15 +327,15 @@
         <div class="service-detail" id="gravírozás">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\engraving-320w.webp 320w, images\services\engraving-480w.webp 480w, images\services\engraving-640w.webp 640w, images\services\engraving-768w.webp 768w, images\services\engraving-1024w.webp 1024w"><img src="images/services/engraving.png"        sizes="160px"      alt="Gravírozás - Egyedi gravírozás ajándéktárgyakra és kulcsokra" width="1024" height="1024" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Gravírozás</h2>
-                <p>Személyre szabott megoldások az Ön igénye szerint. </p>
+                <h2 data-i18n="serv_engr_h2">Gravírozás</h2>
+                <p data-i18n="serv_engr_p">Személyre szabott megoldások az Ön igénye szerint. </p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Névtáblák gravírozása</span></div>
-                    <div class="feature-item"><span>Egyedi felirat</span></div>
-                    <div class="feature-item"><span>Azonosító táblák</span></div>
-                    <div class="feature-item"><span>Precíz munka</span></div>
-                    <div class="feature-item"><span>Gyors átfutás</span></div>
-                    <div class="feature-item"><span>Egyedi kérések</span></div>
+                    <div class="feature-item"><span data-i18n="serv_engr_f1">Névtáblák gravírozása</span></div>
+                    <div class="feature-item"><span data-i18n="serv_engr_f2">Egyedi felirat</span></div>
+                    <div class="feature-item"><span data-i18n="serv_engr_f3">Azonosító táblák</span></div>
+                    <div class="feature-item"><span data-i18n="serv_engr_f4">Precíz munka</span></div>
+                    <div class="feature-item"><span data-i18n="serv_engr_f5">Gyors átfutás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_engr_f6">Egyedi kérések</span></div>
                 </div>
             </div>
         </div>
@@ -333,15 +344,15 @@
         <div class="service-detail" id="multlock">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\Logo\mul-t-lock-320w.webp 320w, images\Logo\mul-t-lock-480w.webp 480w, images\Logo\mul-t-lock-640w.webp 640w, images\Logo\mul-t-lock-768w.webp 768w, images\Logo\mul-t-lock-1024w.webp 1024w"><img src="images/Logo/mul-t-lock.jpg"        sizes="(max-width: 600px) 50vw, 100px"      alt="Mul-T-Lock Logo" width="1073" height="1073" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Mul-T-Lock</h2>
-                <p>Hivatalos Mul-T-Lock partner. Prémium biztonsági zárak és kulcsok szervize. A legmagasabb szintű biztonság otthonának és értékeinek védelmére.</p>
+                <h2 data-i18n="serv_multlock_h2">Mul-T-Lock</h2>
+                <p data-i18n="serv_multlock_p">Hivatalos Mul-T-Lock partner. Prémium biztonsági zárak és kulcsok szervize. A legmagasabb szintű biztonság othonának és értékeinek védelmére.</p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Mul-T-Lock zárak</span></div>
-                    <div class="feature-item"><span>Hivatalos partner</span></div>
-                    <div class="feature-item"><span>Kulcs másolás</span></div>
-                    <div class="feature-item"><span>Zárcsere, telepítés</span></div>
-                    <div class="feature-item"><span>Magas biztonság</span></div>
-                    <div class="feature-item"><span>Garancia</span></div>
+                    <div class="feature-item"><span data-i18n="serv_multlock_f1">Mul-T-Lock zárak</span></div>
+                    <div class="feature-item"><span data-i18n="serv_multlock_f2">Hivatalos partner</span></div>
+                    <div class="feature-item"><span data-i18n="serv_multlock_f3">Kulcs másolás</span></div>
+                    <div class="feature-item"><span data-i18n="serv_multlock_f4">Zárcsere, telepítés</span></div>
+                    <div class="feature-item"><span data-i18n="serv_multlock_f5">Magas biztonság</span></div>
+                    <div class="feature-item"><span data-i18n="serv_multlock_f6">Garancia</span></div>
                 </div>
             </div>
         </div>
@@ -350,27 +361,27 @@
         <div class="service-detail" id="értékesítés">
             <div class="service-detail-icon"><picture><source type="image/webp" srcset="images\services\sales-320w.webp 320w, images\services\sales-480w.webp 480w, images\services\sales-640w.webp 640w, images\services\sales-768w.webp 768w, images\services\sales-1024w.webp 1024w"><img src="images/services/sales.jpg"        sizes="(max-width: 600px) 50vw, 100px"      alt="Értékesítés" width="1073" height="1073" style="max-width: 100%; height: auto;" loading="lazy" decoding="async"></picture></div>
             <div class="service-detail-content">
-                <h2>Értékesítés</h2>
-                <p>Balatonfüreden üzletünkben megtalálja a zárakat, lakatokat, kulcsokat és kiegészítőket – mindent egy helyen! Egyedi igény esetén gyorsan és kedvező áron beszerezzük, amire szüksége van.</p>
+                <h2 data-i18n="serv_sales_h2">Értékesítés</h2>
+                <p data-i18n="serv_sales_p">Balatonfüreden üzletünkben megtalálja a zárakat, lakatokat, kulcsokat és kiegészítőket – mindent egy helyen! Egyedi igény esetén gyorsan és kedvező áron beszerezzük, amire szüksége van.</p>
                 <div class="service-features">
-                    <div class="feature-item"><span>Zárbetétek és lakatok – egyedi darabként vagy rendszerbe programozva</span></div>
-                    <div class="feature-item"><span>Bevésőzárak – hagyományos és biztonsági kivitelben</span></div>
-                    <div class="feature-item"><span>Biztonsági megoldások – rúdzárak, többpontos zár-kilincsek, biztonsági pajzsok</span></div>
-                    <div class="feature-item"><span>Rászegzős és kiegészítő zárak</span></div>
-                    <div class="feature-item"><span>Bútorzárak</span></div>
-                    <div class="feature-item"><span>Lakatok</span></div>
-                    <div class="feature-item"><span>Kilincsek, címkék</span></div>
-                    <div class="feature-item"><span>Postaládák, pénzkazetták, kulcsszekrények</span></div>
-                    <div class="feature-item"><span>Kulcstartók, kulcsjelölők és egyéb kiegészítők</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f1">Zárbetétek és lakatok – egyedi darabként vagy rendszerbe programozva</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f2">Bevésőzárak – hagyományos és biztonsági kivitelben</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f3">Biztonsági megoldások – rúdzárak, többpontos zár-kilincsek, biztonsági pajzsok</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f4">Rászegzős és kiegészítő zárak</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f5">Bútorzárak</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f6">Lakatok</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f7">Kilincsek, címkék</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f8">Postaládák, pénzkazetták, kulcsszekrények</span></div>
+                    <div class="feature-item"><span data-i18n="serv_sales_f9">Kulcstartók, kulcsjelölők és egyéb kiegészítők</span></div>
                 </div>
             </div>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
-            <h2>Kérdése van?</h2>
-            <p>Lépjen velünk kapcsolatba! Szívesen segítünk minden igényben.</p>
-            <a href="contact.html" class="cta-button">Kapcsolatfelvétel</a>
+            <h2 data-i18n="serv_cta_h2">Kérdése van?</h2>
+            <p data-i18n="serv_cta_p">Lépjen velünk kapcsolatba! Szívesen segítünk minden igényben.</p>
+            <a href="contact.html" class="cta-button" data-i18n="serv_cta_button">Kapcsolatfelvétel</a>
         </div>
     </section>
 
@@ -378,31 +389,31 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Rólunk</h4>
-                <p>Cseh János vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, zárszervizről, gravírozásról vagy késélezésről.</p>
+                <h4 data-i18n="footer_about_title">Rólunk</h4>
+                <p data-i18n="footer_about_text">Cseh János vagyok, egyéni vállalkozó, több mint húsz év tapasztalattal a hátam mögött. Üzletem Balatonfüred szívében található, ahol mindenkit szeretettel várok – legyen szó kulcsmásolásról, zárszervizről, gravírozásról vagy késélezésről.</p>
             </div>
             <div class="footer-section">
-                <h4>Kapcsolat</h4>
+                <h4 data-i18n="footer_contact_title">Kapcsolat</h4>
                 <p>Telefon: <a href="tel:+36302177013">+36 30 217 7013</a></p>
                 <p>Email: <a href="mailto:kulcs.zar.szerviz@gmail.com">kulcs.zar.szerviz@gmail.com</a></p>
                 <p>Cím: Balatonfüred, Malom köz 2. Vásárcsarnok</p>
             </div>
             <div class="footer-section">
-                <h4>Nyitvatartás</h4>
-                <p>H–P: 08:00–12:30, 13:00–16:30</p>
-                <p class="closed">Szo–Va: Zárva</p>
+                <h4 data-i18n="footer_hours_title">Nyitvatartás</h4>
+                <p data-i18n="footer_hours_weekday">H–P: 08:00–12:30, 13:00–16:30</p>
+                <p class="closed" data-i18n="footer_hours_weekend">Szo–Va: Zárva</p>
             </div>
             <div class="footer-section">
-                <h4>Gyorslinkek</h4>
+                <h4 data-i18n="footer_quicklinks_title">Gyorslinkek</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Kezdőlap</a></li>
-                    <li><a href="services.html">Szolgáltatások</a></li>
-                    <li><a href="about.html">Rólunk</a></li>
-                    <li><a href="contact.html">Kapcsolat</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Kezdőlap</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Szolgáltatások</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">Rólunk</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Kapcsolat</a></li>
                 </ul>
             </div>
             <div class="footer-section reviews-section">
-                <h4>Google Értékelések</h4>
+                <h4 data-i18n="footer_reviews_title">Google Értékelések</h4>
                 <div class="reviews-carousel">
                     <div class="review-item">
                         <div class="review-stars">★★★★★</div>
@@ -453,6 +464,7 @@
             });
         }
     </script>
+    <script src="js/translations.js"></script>
     <script src="js/main.min.js" defer></script>
 </body>
 </html>

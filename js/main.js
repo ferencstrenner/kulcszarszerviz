@@ -24,7 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Smooth scroll navigation
-    const navLinks = document.querySelectorAll('nav a, #mobile-nav a');
+    const allNavLinks = document.querySelectorAll('nav a, #mobile-nav a');
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
