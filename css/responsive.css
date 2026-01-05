@@ -96,7 +96,7 @@
 
 @media (max-width: 768px) {
     header {
-        padding: 15px 20px;
+        padding: 8px 20px;
     }
 
     .header-content {
@@ -364,7 +364,7 @@
 /* Mobile header fix (max-width: 600px) */
 @media (max-width: 600px) {
     header {
-        padding: 4px 12px;
+        padding: 8px 20px;
         position: relative;
     }
 
@@ -376,7 +376,7 @@
     }
 
     .logo {
-        font-size: 18px;
+        font-size: 20px;
         gap: 8px;
         flex: 1;
     }

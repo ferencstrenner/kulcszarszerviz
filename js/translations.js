@@ -702,7 +702,7 @@ const translations = {
         footer_about_text: "I am János Cseh, an individual entrepreneur with more than twenty years of experience. My shop is located in the heart of Balatonfüred, where I welcome everyone – whether it's key copying, lock service, engraving or knife sharpening.",
         footer_contact_title: "Contact",
         footer_hours_title: "Opening Hours",
-        footer_hours_weekday: "Mon–Fri: 08:00–12:30, 01:00–04:30 PM",
+        footer_hours_weekday: "Mon–Fri: 8:00 AM–12:30 PM, 1:00 PM–4:30 PM",
         footer_hours_weekend: "Sat–Sun: Closed",
         footer_quicklinks_title: "Quick Links",
         footer_reviews_title: "Google Reviews",
