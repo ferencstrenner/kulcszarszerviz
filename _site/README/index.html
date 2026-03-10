@@ -1,0 +1,57 @@
+<h1>Kulcs-Zár Szerviz Weboldal</h1>
+<p>Modern, letisztult design prémium hatással. Professzionális zárszolgáltatások prezentációja.</p>
+<h2>Projekt Szerkezete</h2>
+<pre><code>kulcs-zar-szerviz/
+├── index.html
+├── css/
+│   ├── style.css
+│   └── responsive.css
+├── js/
+│   └── main.js
+├── images/
+│   ├── logo.png
+│   ├── hero/
+│   └── services/
+├── assets/
+│   └── fonts/
+└── README.md
+</code></pre>
+<h2>Telepítés</h2>
+<ol>
+<li>Projekt klónozása</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/username/kulcs-zar-szerviz.git
+</code></pre>
+<ol start="2">
+<li>VS Code-ban megnyitás</li>
+</ol>
+<pre><code class="language-bash">cd kulcs-zar-szerviz
+code .
+</code></pre>
+<h2>Netlify Deploy</h2>
+<ol>
+<li>Netlify.com-ra lépni és bejelentkezni</li>
+<li>&quot;New site from Git&quot; lehetőség választása</li>
+<li>GitHub repo kiválasztása</li>
+<li>Deploy settings:
+<ul>
+<li>Build command: (üres)</li>
+<li>Publish directory: ./</li>
+</ul>
+</li>
+<li>Deploy</li>
+</ol>
+<h2>Szerkesztés</h2>
+<ul>
+<li><code>index.html</code> - Fő oldal</li>
+<li><code>css/style.css</code> - Stílus</li>
+<li><code>js/main.js</code> - JavaScript funkcionalitás</li>
+</ul>
+<h2>Eszközök</h2>
+<ul>
+<li><code>npm run convert</code> - Átkonvertálja az <code>images/</code> mappában található PNG/JPG képeket WebP-re (egyedi minőség paraméter: <code>--quality=75</code>).</li>
+<li><code>npm run srcset</code> - Generál több felbontású WebP változatot (srcset) és frissíti a HTML fájlokat, hogy használják a <code>srcset</code>-et és <code>sizes</code> attribútumot. (Szükség esetén futtatható <code>npm run srcset -- --quality=75 images/services</code> formában.)</li>
+<li><code>npm run dev</code> - Indít egy egyszerű helyi http szervert a projekt gyökérben (<code>http://localhost:8000</code>).</li>
+</ul>
+<h2>Licencia</h2>
+<p>Minden jog fenntartva © 2025 Kulcs-Zár Szerviz</p>

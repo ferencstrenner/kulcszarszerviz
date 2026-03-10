@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulcs-Zár Szerviz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 15px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #c41e3a;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🔐";
+            font-size: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            margin: 0 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c41e3a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .hero-image {
+            height: 300px;
+            background: linear-gradient(45deg, #c41e3a, #e74c3c);
+            border-radius: 10px;
+            animation: slideIn 8s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .hero-image:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .hero-image:nth-child(3) {
+            animation-delay: 6s;
+        }
+
+        @keyframes slideIn {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* Szolgáltatások */
+        .services {
+            padding: 80px 50px;
+            background: #f9f9f9;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .service-btn {
+            background: #c41e3a;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .service-btn:hover {
+            background: #a01830;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #c41e3a;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Kulcs-Zár Szerviz</a>
+            <nav>
+                <a href="#services">Szolgáltatások</a>
+                <a href="#about">Rólunk</a>
+                <a href="#contact">Kapcsolat</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professzionális Zárszolgáltatás</h1>
+            <p>24/7 Gyors és megbízható megoldások minden zárbetörési helyzetben</p>
+            <div class="hero-images">
+                <div class="hero-image">🔑</div>
+                <div class="hero-image">🚪</div>
+                <div class="hero-image">🔒</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <h2>Szolgáltatásaink</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔑</div>
+                <h3>Kulcsmásolás</h3>
+                <p>Gyors és pontos kulcsmásolás minden típusú zárhöz. Professzionális minőség garantálva.</p>
+                <button class="service-btn">Kérj Segítséget</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Zárjavítás</h3>
+                <p>Sérült vagy elromlott zárat javítunk? Szakszerű és gyors megoldás.</p>
+                <button class="service-btn">Kérj Segítséget</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Autókulcs</h3>
+                <p>Autókulcs másolása és javítása. Modern technológiával a legjobb eredményért.</p>
+                <button class="service-btn">Kérj Segítséget</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Élezés</h3>
+                <p>Tompult kulcsok élezése. Precíz és gyors munkavégzés.</p>
+                <button class="service-btn">Kérj Segítséget</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✍️</div>
+                <h3>Gravírozás</h3>
+                <p>Kulcsok gravírozása. Személyre szabott megoldások az Ön igénye szerint.</p>
+                <button class="service-btn">Kérj Segítséget</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Mul-T-Lock</h3>
+                <p>Prémium Mul-T-Lock biztonsági zárak és kulcsok szervize.</p>
+                <button class="service-btn">Kérj Segítséget</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Rólunk</h4>
+                <p>20+ év tapasztalat a zárszolgáltatásban. Megbízható, gyors és professzionális megoldások.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <p>Telefon: <a href="tel:+3612345678">+36 1 234 5678</a></p>
+                <p>Email: <a href="mailto:info@kulcs-zar.hu">info@kulcs-zar.hu</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Nyitvatartás</h4>
+                <p>Hétfő-Vasárnap: 00:00 - 24:00</p>
+                <p>24/7 Ügyeleti szolgáltatás elérhető</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kulcs-Zár Szerviz. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+</body>
+</html>
