@@ -522,6 +522,24 @@
     <script src="js/translations.js"></script>
     <script src="js/main.min.js" defer></script>
     <script>
+        function getNextOpeningMessage(now, holidays, specialClosedDays, lang) {
+            const dayNames = { hu: ['vasárnap','hétfő','kedd','szerda','csütörtök','péntek','szombat'],
+                               de: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+                               en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] };
+            const names = dayNames[lang] || dayNames['hu'];
+            for (let i = 1; i <= 14; i++) {
+                const next = new Date(now);
+                next.setDate(next.getDate() + i);
+                const d = next.getDay();
+                const s = next.toISOString().split('T')[0];
+                if (d >= 1 && d <= 5 && !holidays.includes(s) && !specialClosedDays.includes(s)) {
+                    if (i === 1) return (translations[lang]?.status_opens_tomorrow || 'Nyitás: Holnap 08:00');
+                    return `Nyitás: ${names[d]} 08:00`;
+                }
+            }
+            return translations[lang]?.status_opens_monday || 'Nyitás: Hétfő 08:00';
+        }
+
         function updateStoreStatus() {
             const now = new Date();
             const day = now.getDay(); // 0 = vasárnap, 1 = hétfő, ..., 6 = szombat
@@ -598,14 +616,14 @@
                     const currentLang = localStorage.getItem('language') || 'hu';
                     nextOpening = translations[currentLang]?.status_opens_today_afternoon || 'Nyitás: Ma 13:00';
                 } else {
-                    // Este már zárva - holnap nyit
+                    // Este már zárva - következő nyitónap keresése
                     const currentLang = localStorage.getItem('language') || 'hu';
-                    nextOpening = translations[currentLang]?.status_opens_tomorrow || 'Nyitás: Holnap 08:00';
+                    nextOpening = getNextOpeningMessage(now, holidays, specialClosedDays, currentLang);
                 }
             } else {
-                // Hétvégén zárva
+                // Hétvégén zárva - következő nyitónap keresése
                 const currentLang = localStorage.getItem('language') || 'hu';
-                nextOpening = translations[currentLang]?.status_opens_monday || 'Nyitás: Hétfő 08:00';
+                nextOpening = getNextOpeningMessage(now, holidays, specialClosedDays, currentLang);
             }
 
             const currentLang = localStorage.getItem('language') || 'hu';
