@@ -547,6 +547,11 @@
                 return;
             }
 
+            // Rendkívüli zárva tartás (egyedi dátumok)
+            const specialClosedDays = [
+                '2026-05-26', // Rendkívüli zárva tartás
+            ];
+
             // Magyar ünnepnapok (formátum: 'YYYY-MM-DD')
             const holidays = [
                 `${currentYear}-01-01`, // Újév
@@ -565,9 +570,9 @@
                 `${currentYear}-12-31`  // Szilveszter
             ];
 
-            // Ellenőrizd, hogy ma ünnepnap-e
+            // Ellenőrizd, hogy ma ünnepnap vagy rendkívüli zárva tartás-e
             const todayString = now.toISOString().split('T')[0];
-            const isHoliday = holidays.includes(todayString);
+            const isHoliday = holidays.includes(todayString) || specialClosedDays.includes(todayString);
 
             let isOpen = false;
             let nextOpening = '';
